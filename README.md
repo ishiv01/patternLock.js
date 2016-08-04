@@ -13,7 +13,7 @@ First **Download** the `src/patternlock.js` file.
 Then include it into your html file like:
 
 ```html
-<script src='path/to/patternlock.js></script> //change 'path/to/' to the real folder.
+<script src='path/to/patternlock.js'></script> //change 'path/to/' to the real folder.
 ```
 
 Once included, initilise the patternlock by calling `new PatternLock()` function, like this:
