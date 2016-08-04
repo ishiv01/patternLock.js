@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Pattern Lock</title>
+      <meta name='viewport' content='width=device-width' />
+      <link rel='stylesheet' href='css/bootstrap.min.css' />
+   </head>
+   <body>
+     <h2 class='text-center'>Pattern Lock</h2><br/>
+     <div class='text-center'>
+     		<canvas id='patternCanvas' width='300' height='400px' style='border:1px solid #d3d3d3;'></canvas>
+     </div>
+     <script src='js/patternlock.js'></script>
+     <script>
+     	var pat = new PatternLock({
+     		'dotSize': 10,
+     		'canvasId': 'patternCanvas'
+     	});
+     	//pat.setCanvas('patternCanvas');
+     	pat.createLock(function(err, comb){
+     		if(err){
+     			console.log(err);
+     			alert(err);
+     			}
+     		else{
+     			console.log(comb);
+     			alert('Your Pattern Combination is: ' + comb);
+     			}
+     	});
+     </script>
+   </body>
+</html>
