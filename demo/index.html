@@ -3,7 +3,9 @@
    <head>
       <title>Pattern Lock</title>
       <meta name='viewport' content='width=device-width' />
-      <link rel='stylesheet' href='css/bootstrap.min.css' />
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <style>
       html{
 	      height:100%;
@@ -19,6 +21,9 @@
 		position:absolute;
 		bottom:20px;
 		width:100%
+	}
+	#msg{
+		padding:20px;
 	}
       </style>
    </head>
@@ -54,7 +59,7 @@
      	});
 	function addMessage(type, message){
 		let msgBox = document.getElementById('msg');
-		msgBox.innerHTML = "<div class='alert alert-"+type+"'>"+message+"</div>";
+		msgBox.innerHTML = "<div class='text text-"+type+"'>"+message+"</div>";
 		console.log(msgBox.innerHTML);
 	}
      </script>
