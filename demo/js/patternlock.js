@@ -7,7 +7,7 @@ class PatternLock {
 		this.joinArray = []; //dots joined
 		this.dotSize = config.dotSize || 10;
 		this.effRadius = this.dotSize + 10;
-		this.vibrate = config.vibrate || true;
+		this.vibrate = (config.vibrate === undefined) ? true : config.vibrate;
 		this.minJoinDots = config.minJoinDots || 3;
 		//set up the canvas
 		this.canvas = document.getElementById(config.canvasId);
