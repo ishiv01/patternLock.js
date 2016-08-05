@@ -6,6 +6,7 @@ A simple 3kb js script to create Pattern Lock for your web app.
 ##Why PatternLock?
 
 Simply because it is **easy** and **Fast** to draw pattern than typing a pin.
+![Demo image](demo/demo.gif)
 
 ##Usage
 
