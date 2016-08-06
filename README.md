@@ -22,6 +22,7 @@ Once included, initilise the patternlock by calling `new PatternLock()` function
 ```javascript
 var patternLock = new PatternLock(
 	'canvasId': 'YOUR CANVAS ELEMENT ID' //you must provide the canvas id
+	'patternSize': 'ARRAY' //the array should have two int. first for no. of rows and second no. of columns e.g, [3,3] (default) [3 rows, 3 columns]
 	'dotColor': 'COLOR SCHEMA', //Default light green(#00FF26)
 	'dotSize': 'NUMBER', //Default 10, Radius of the dots
 	'vibrate': 'TRUE OR FALSE', //Default true
