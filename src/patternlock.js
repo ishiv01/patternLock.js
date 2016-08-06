@@ -2,8 +2,9 @@ class PatternLock {
 		
 		//basic pattern lock configeration
 	constructor(config){
+		this.patternSize = config.patternSize || [3,3];
 		this.dotColor = config.dotColor || '#00FF26';
-		this.dotArray = [[15,15],[15,150],[15,285],[150,15],[150,150],[150,285],[285,15],[285,150],[285,285]];
+		this.dotArray = [];
 		this.joinArray = []; //dots joined
 		this.dotSize = config.dotSize || 10;
 		this.effRadius = this.dotSize + 10;
@@ -17,6 +18,7 @@ class PatternLock {
 		this.ctx.strokeStyle = this.dotColor;
 		this.ctx.lineWidth = this.dotSize-2;
 		this.ctx.lineCap = 'round';
+		this.setDotArray();
 		this.createDots();
 	}
 	
@@ -72,7 +74,7 @@ class PatternLock {
 	}
 	//check the position of the touch relative to dots
 	checkPosition(x, y){
-		for(var j=0; j<9; j++){
+		for(var j=0; j<this.dotArray.length; j++){
 			if(x>this.dotArray[j][0]-this.effRadius && x<this.dotArray[j][0]+this.effRadius && y>this.dotArray[j][1]-this.effRadius && y<this.dotArray[j][1]+this.effRadius && !this.joinArray.includes(j)){
 				this.joinArray.unshift(j);
 				if(this.vibrate)
@@ -106,5 +108,26 @@ class PatternLock {
 		this.clearCanvas();
 		this.createDots();
 	}
-	 
+	 setDotArray(){
+	 	let rows = this.patternSize[0],
+	 	cols = this.patternSize[1],
+	 	canvasWidth = this.canvas.clientWidth,
+	 	canvasHeight = this.canvas.clientHeight,
+	 	paddingR = canvasWidth/20,
+	 	paddingC = canvasHeight/20,
+	 	rowsDotSpacing = (canvasHeight-paddingC*2)/(rows-1),
+	 	colsDotSpacing = (canvasWidth-paddingR*2)/(cols-1);
+	 	
+	 	if(rowsDotSpacing > this.effRadius*3 && colsDotSpacing > this.effRadius*3){
+	 		for(let i=0; i<rows; i++){
+	 		for(let j=0; j<cols; j++){
+	 			let xCord = (j*colsDotSpacing) + paddingR;
+	 			let yCord = (i*rowsDotSpacing) + paddingC;
+	 			this.dotArray.push([xCord, yCord]);
+	 		}
+	 	}
+	 	}else{
+	 		console.log('Error: Dots are too close-please increase the width and height of your canvas');
+	 	}
+	 }
 }

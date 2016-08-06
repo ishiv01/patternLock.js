@@ -43,7 +43,8 @@
      <script>
      	var pat = new PatternLock({
      		'dotSize': 10,
-     		'canvasId': 'patternCanvas'
+     		'canvasId': 'patternCanvas',
+     		'patternSize': [3,3]
      	});
      	//pat.setCanvas('patternCanvas');
      	pat.createLock(function(err, comb){
@@ -51,6 +52,7 @@
      			addMessage('danger', err);
      			}
      		else{
+     		
      			if(comb==='874312') //this is just for demo. You should do this step on server side.
 				addMessage('success', '<strong>Success!</strong> You Have Successfully Logged In. Redirecting To Your Account.')
 				else
